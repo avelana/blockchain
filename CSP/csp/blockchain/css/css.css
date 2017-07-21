@@ -1,0 +1,14 @@
+body{
+   // background-image: url(../img/bg.jpeg);
+    //background-repeat: repeat-y; //no-repeat;
+    //background-size: cover;
+}
+h1{
+    color: blue;
+}
+img{
+   max-width:100%;
+}
+.header h1{
+	margin-bottom:0;
+	}

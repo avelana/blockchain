@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Block Chain</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link type="text/css" rel="stylesheet" href="./css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="./css/css.css"/>
+    <script type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="./js/tether.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/app-ws.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <img src="img/blockchain.jpeg"/>
+        </div>
+        <div class="col-9 header">
+            <h1>Block chain of users' data</h1>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <form> <!-- Init Web Socket Form ttt-->
+            <div class="form-group row">
+                <label for="WebSocketId" class="col-4 col-form-label">WebSocket:</label>
+                <div class="col-8">
+                    <input type="text" id="WebSocketId"  name="WebSocket" value="localhost:57772/csp/blockchain/web.router.cls">
+                </div>
+
+            </div>
+            <div class="form-group row">
+                <label for="WebSocketId" class="col-4 col-form-label">User:</label>
+                <div class="col-8">
+                    <input type="text" id="UserId" name="User" value="_SYSTEM">
+                </div>
+            </div>
+            <div class="form-group row" >
+                <label for="WebSocketId" class="col-4 col-form-label">Password:</label>
+                <div class="col-8">
+                    <input type="text" id="PasswordId" name="Password" value="SYS">
+                </div>
+            </div>
+            <button id="InitButton" class="btn btn-primary" type="button" value="Start WebSocket" onclick="InitSocket(WebSocketId.value, UserId.value, PasswordId.value);" />
+        </form></div>
+    <div class="row">
+        <div class="form-group">
+            <label for="selection">Select a command</label>
+            <select class="form-control" id="selection">
+                <option>info</option>
+                <option>Show data from Blocks</option>
+                <option>mineBlock</option>
+                <option>Show data from Blocks</option>
+                <option>Show Preers</option>
+                <option>Add Peer</option>
+            </select>
+        </div>
+    </div>
+    <div class="row data"></div>
+</div>
+</body>
+</html>
