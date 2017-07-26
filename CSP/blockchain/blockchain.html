@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Write Data</title>
+</head>
+<body>
+<header>
+ </header>
+<section>
+<h2>Enter Text</h2>
+<input type="text" id="textInput">
+<button id="addtext">Submit</button>
+<hr>
+<p id="name">name</p>
+</section>
+<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script>
+  var data;
+ 
+   
+   var xhr = new XMLHttpRequest();
+   var url = "localhost:57772/blockchain/api/mineBlock";
+   xhr.open("POST", url, true);
+   xhr.setRequestHeader("Access-Control-Allow-Origin","*");
+   xhr.setRequestHeader("Access-Control-Allow-Credentials", "true");
+   xhr.setRequestHeader("Content-type", "application/json");
+
+   $("#addtext").click(function(){
+      data = $("#textInput").val();
+      $("#name").html(data);
+      ToJSON(data);
+  });
+ function ToJSON(data)
+   {
+       //console.log(data);
+       var data2=JSON.stringify({
+           "text":data
+       });
+       console.log(data2);
+       xhr.send(data2);
+       console.log("Sent");   
+  }
+   
+ 
+</script>
+</body>
+</html>
+

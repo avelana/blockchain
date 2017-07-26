@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON Get</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <script>
+    
+   
+    
+	var xmlhttp = new XMLHttpRequest();
+    var url ="http://localhost:57772/blockchain/api/peers";
+    console.log("Hi"); 
+	xmlhttp.open("GET", url, true);
+    xmlhttp.setRequestHeader("Access-Control-Allow-Origin","*");
+    console.log("Hi2"); 
+    xmlhttp.setRequestHeader("Access-Control-Allow-Credentials", "true");
+     xmlhttp.send();
+    console.log("Hi3"); 
+    xmlhttp.onreadystatechange = function()
+    
+	{     console.log("IN Func");
+if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+    
+		{   console.log("IN ReadySt");
+//			console.log(myArr);
+		var myArr = JSON.parse(xmlhttp.responseText);
+			console.log(myArr);
+            var str="<tr><th>ID</th><th>IP</th>  <th>Port</th></tr>" ;
+            for(var i=0;i<myArr.Peers.length;i++)
+           {
+				console.log(myArr.Peers[i]);
+               
+                   str +="<tr><td>"+myArr.Peers[i].ID+"</td><td>"+myArr.Peers[i].IP+"</td><td> "+myArr.Peers[i].Port+"</td></tr>";
+              
+            }
+        document.getElementById('content').innerHTML=str;
+        }
+	}
+   
+    </script>
+	<script>src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+</head>
+<body>
+<table id="content">
+   </table>
+</body>
+</html>

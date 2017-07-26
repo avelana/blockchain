@@ -52,21 +52,21 @@ Method createBlockChain() As %Status
 
 Method isValidNewBlock(newBlock As entity.block, previousBlock As entity.block) As %Status
 {
-    if (previousBlock.%Id() + 1 '= newBlock.%Id())
-    {
-        write "invalid index"
-        return $$$ERROR($$$GeneralError,"Wrong")
-    }
-  elseif (previousBlock.hash '= newBlock.previousHash)
-    {
-        write "invalid previoushash"
-        return $$$ERROR($$$GeneralError,"Wrong")
-    }
-    elseif (..calculateHash(newBlock) '= newBlock.hash)
-    {
-        write "invalid Block ",..calculateHash(newBlock)," ",newBlock.hash
-        return $$$ERROR($$$GeneralError,"Wrong")
-    }
+ //    if (previousBlock.%Id() + 1 '= newBlock.%Id())
+ //    {
+ //        write "invalid index"
+ //        return $$$ERROR($$$GeneralError,"Wrong")
+ //    }
+ // 	if (previousBlock.hash '= newBlock.previousHash)
+ //    {
+ //        write "invalid previoushash"
+ //        return $$$ERROR($$$GeneralError,"Wrong")
+ //    }
+ //    elseif (..calculateHash(newBlock) '= newBlock.hash)
+ //     {
+ //         write "invalid Block ",..calculateHash(newBlock)," ",newBlock.hash
+ //         return $$$ERROR($$$GeneralError,"Wrong")
+ //    }
     return $$$OK
 }
 
